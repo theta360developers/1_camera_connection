@@ -28,7 +28,7 @@ This tutorial is the first in a series aimed at helping developers learn how to 
 
 # THETA X Button Controls using HTTP
 
-![screenshot](../../docs/layout.png)
+![screenshot](layout.png)
 
 This application does not use state management, but uses the [http](https://pub.dev/packages/http) package from Dart to connect to a RICOH THETA X camera. Using the http commands, such as GET and POST, the application receives information and executes commands. Below is a list of this project's button controls using the [THETA WebAPI](https://api.ricoh/docs/theta-web-api-v2.1/). 
 
@@ -61,7 +61,7 @@ var response = await http.get(url, headers: header);
 
 At the moment, this application does not display any response to the screen, instead, the output is printed out to the console. 
 
-![output](../../docs/output.png)
+![output](output.png)
 
 ## Take Picture 📷
 
@@ -86,7 +86,7 @@ The response requires the url, but I also passed in the `bodyJson`.
 
 As the response is a POST request, the application sends out information and takes a picture. 
 
-![example picture](../../docs/screenshot.jpg)
+![example picture](screenshot.jpg)
 
 ## JSON Decode
 
