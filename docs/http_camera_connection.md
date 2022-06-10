@@ -14,14 +14,14 @@ This tutorial is the first in a series aimed at helping developers learn how to 
 # Main Resources
 
 * [RICOH THETA API](https://api.ricoh/docs/theta-web-api-v2.1/)
-* [theta360.guide developers community](https://www2.theta360.guide/)
+* [theta360.guide developers community](https://theta360.guide/)
 * [Code for this tutorial](https://github.com/theta360developers/theta_x_gs1)
 
 # Main steps in Sending an API command to the camera
 
-* The camera works as a hotspot, you connect to it via Wi-Fi
-* The camera password is the numerical digits only of the camera SSID
-* You must use http, not https. You mayy need to adjust mobile app network security settings
+* The camera works as a hotspot, you connect to it via Wi-Fi. Example: ![hotspot_example](hotspot-example.png)
+* The camera password is the numerical digits only of the camera SSID. Example: Full SSID is YR14010005, so password is 14010005
+* You must use http, not https. You may need to adjust mobile app network security settings
 * Must connect to 192.168.1.1 and the end point cannot be changed
 * You use HTTP GET, HTTP POST, and HTTP POST with body commands. The body must be encoded as JSON
 * You must send a header. The header in this tutorial is used as a Dart map with the http package. This tutorial only covers access point mode, not client mode
@@ -65,13 +65,13 @@ At the moment, this application does not display any response to the screen, ins
 
 ## Take Picture 📷
 
-The command for taking a picture differs slightly from the info and state buttons as we need to run `jsonEncode`. The url for taking the picture uses `/osc/commands/execute` as shown below.
+The command for taking a picture differs slightly from the info and state buttons as we need to run `jsonEncode` on the request body that is sent to the camera. The url for taking the picture uses `/osc/commands/execute` as shown below.
 
 ```
 var url = Uri.parse('http://192.168.1.1/osc/commands/execute');
 ```
 
-I created a map called `bodyMap` that stores the key-value pair from the camera. Next, I had to encode the map into Json, so I could pass it into my response. 
+I created a map called `bodyMap` that stores the key-value pair from the camera. Next, I had to encode the map into Json, so I could pass it into the request body. 
 
 ```
 var bodyMap = {'name': 'camera.takePicture'};
@@ -84,7 +84,7 @@ The response requires the url, but I also passed in the `bodyJson`.
   var response = await http.post(url, headers: header, body: bodyJson);
 ```
 
-As the response is a POST request, the application sends out information and takes a picture. 
+As the response assignment runs a POST request, the application sends out information and takes a picture. 
 
 ![example picture](screenshot.jpg)
 
