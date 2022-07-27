@@ -1,4 +1,4 @@
-# THETA X Button Controls using HTTP
+# Connect to RICOH THETA Cameras with Basic HTTP API Calls
 
 ![screenshot](docs/layout.png)
 
